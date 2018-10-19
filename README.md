@@ -1,6 +1,6 @@
 # vue-element-tabletree
 
-> tabletree base on elemnt-ui's tabe 
+> tabletree base on elemnt-ui's tabe
 
 ## Build Setup
 
@@ -19,3 +19,7 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## element-ui
+
+基于element-ui 2.4.8
