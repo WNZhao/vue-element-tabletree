@@ -1,95 +1,69 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+     <table-tree :colums="dColums" :datas="datas"></table-tree>
   </div>
 </template>
 
 <script>
+import TableTree from './tabletree/TableTree'
+
+const columns = [{
+  treeNode: true,
+  _props: {
+    key: 'name',
+    prop: 'name',
+    label: '姓名',
+    headerAlign: 'center',
+    align: 'center'
+  }
+
+}, {
+  _props: {
+    label: '日期',
+    key: 'date',
+    prop: 'date',
+    headerAlign: 'center',
+    align: 'center'
+  }
+}, {
+  _props: {
+    label: '地址',
+    key: 'address',
+    prop: 'address',
+    headerAlign: 'center'
+  }
+}]
+
+const datas = [{
+  date: '2016-05-02',
+  name: '王小虎',
+  align: 'center',
+  address: '上海市普陀区金沙江路 1518 弄'
+}, {
+  date: '2016-05-04',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 1517 弄'
+}, {
+  date: '2016-05-01',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 1519 弄'
+}, {
+  date: '2016-05-03',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 1516 弄'
+}]
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      dColums: columns,
+      datas: datas
     }
+  },
+  components: {
+    TableTree
   }
 }
 </script>
@@ -109,5 +83,9 @@ li {
 }
 a {
   color: #42b983;
+}
+.hello{
+    width: 1024px;
+    margin: auto
 }
 </style>
