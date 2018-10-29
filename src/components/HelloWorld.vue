@@ -1,69 +1,77 @@
 <template>
   <div class="hello">
-     <table-tree :colums="dColums" :datas="datas"></table-tree>
+     <tree-table :data="tDatas" :columns="columns"></tree-table>
   </div>
 </template>
 
 <script>
-import TableTree from './tabletree/TableTree'
-
-const columns = [{
-  treeNode: true,
-  _props: {
-    key: 'name',
-    prop: 'name',
-    label: '姓名',
-    headerAlign: 'center',
-    align: 'center'
-  }
-
-}, {
-  _props: {
-    label: '日期',
-    key: 'date',
-    prop: 'date',
-    headerAlign: 'center',
-    align: 'center'
-  }
-}, {
-  _props: {
-    label: '地址',
-    key: 'address',
-    prop: 'address',
-    headerAlign: 'center'
-  }
-}]
-
-const datas = [{
-  date: '2016-05-02',
-  name: '王小虎',
-  align: 'center',
-  address: '上海市普陀区金沙江路 1518 弄'
-}, {
-  date: '2016-05-04',
-  name: '王小虎',
-  address: '上海市普陀区金沙江路 1517 弄'
-}, {
-  date: '2016-05-01',
-  name: '王小虎',
-  address: '上海市普陀区金沙江路 1519 弄'
-}, {
-  date: '2016-05-03',
-  name: '王小虎',
-  address: '上海市普陀区金沙江路 1516 弄'
-}]
+import TreeTable from './tabletree/index'
 
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      dColums: columns,
-      datas: datas
+      tDatas: [{
+        key: 1,
+        name: 'John Brown sr.',
+        age: 60,
+        address: 'New York No. 1 Lake Park',
+        children: [
+          {
+            key: 12,
+            name: 'John Brown jr.',
+            age: 30,
+            address: 'New York No. 3 Lake Park',
+            children: [{
+              key: 121,
+              name: 'Jimmy Brown',
+              age: 16,
+              address: 'New York No. 3 Lake Park'
+            }]
+          }, {
+            key: 11,
+            name: 'John Brown',
+            age: 42,
+            address: 'New York No. 2 Lake Park'
+          }, {
+            key: 13,
+            name: 'Jim Green sr.',
+            age: 72,
+            address: 'London No. 1 Lake Park',
+            children: [{
+              key: 131,
+              name: 'Jim Green',
+              age: 42,
+              address: 'London No. 2 Lake Park',
+              children: [{
+                key: 1311,
+                name: 'Jim Green jr.',
+                age: 25,
+                address: 'London No. 3 Lake Park'
+              }, {
+                key: 1312,
+                name: 'Jimmy Green sr.',
+                age: 18,
+                address: 'London No. 4 Lake Park'
+              }]
+            }]
+          }]
+      }, {
+        key: 2,
+        name: 'Joe Black',
+        age: 32,
+        address: 'Sidney No. 1 Lake Park'
+      }],
+      columns: [
+        {'text': '姓名', 'value': 'name', 'width': 200},
+        {'text': '年龄', 'value': 'age', 'width': 100},
+        {'text': '地址', 'value': 'address'}
+      ]
     }
   },
   components: {
-    TableTree
+    TreeTable
   }
 }
 </script>
