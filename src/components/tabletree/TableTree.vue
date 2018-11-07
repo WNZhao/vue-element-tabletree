@@ -104,7 +104,4 @@ export default {
 }
 </script>
 <style scoped>
-  .white-placeholder{
-      display:
-  }
 </style>
